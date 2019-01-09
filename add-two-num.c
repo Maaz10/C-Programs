@@ -4,7 +4,7 @@ struct input
 {
  int x,y;
 };
-double input(void)                    // int should have a return type
+double input(void)
 {
  struct input h;
  printf("enter 1st number\n");
@@ -19,13 +19,12 @@ double compute(void)
  int o;
  o=h.x+h.y;
  return o;
-} 
-int output(int o)
+}
+double output(int o)
 { 
- struct input h;
  printf("sum of them is %d",o);
 }
-int main(void)
+double main(void)
 {
 
  int a=input();
