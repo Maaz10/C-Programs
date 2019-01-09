@@ -1,38 +1,27 @@
 #include<stdio.h>
-#include<math.h>
-struct input
-{
-	int  x,y;
-}h;
-double input() 
+void input(int *a,int *b) 
 {                  
-	
 	printf("enter 1st number\n");
-	scanf("%d",&h.x);
+	scanf("%d",a);
  
 	printf("enter 2nd number\n");
-	scanf("%d",&h.y);
-	return h.x ;
-	return h.y;
+	scanf("%d",b);
 }
-double compute(int x)
+int add(int a,int b )
 {
-	
-	int o;
-	o=h.x+h.y;
-	return o;
+	int c;
+	c=a+b;
+	return c;
 } 
-double output(int o)
+void output(int x,int y,int z)
 { 
-	printf("sum of them is %d \t",o);
-	return o;
+	printf(" %d + %d = %d ",x,y,z);
 }
-int main(void)
+int main()
 {
-	double a=input();
-	double b=compute(a);
-	output(b);
-
+	int x,y,z;
+	input(&x,&y);
+	z=add(x,y);
+	output(x,y,z);
 }
-
 
