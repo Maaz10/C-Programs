@@ -2,34 +2,37 @@
 #include<math.h>
 struct input
 {
- int x,y;
-};
-double input(void)
-{
- struct input h;
- printf("enter 1st number\n");
- scanf("%d",&h.x);
+	int  x,y;
+}h;
+double input() 
+{                  
+	
+	printf("enter 1st number\n");
+	scanf("%d",&h.x);
  
- printf("enter 2nd number\n");
- scanf("%d",&h.y);
+	printf("enter 2nd number\n");
+	scanf("%d",&h.y);
+	return h.x ;
+	return h.y;
 }
-double compute(void)
+double compute(int x)
 {
- struct input h;
- int o;
- o=h.x+h.y;
- return o;
-}
+	
+	int o;
+	o=h.x+h.y;
+	return o;
+} 
 double output(int o)
 { 
- printf("sum of them is %d",o);
+	printf("sum of them is %d \t",o);
+	return o;
 }
-double main(void)
+int main(void)
 {
+	double a=input();
+	double b=compute(a);
+	output(b);
 
- int a=input();
- int b=compute();
- output(b);
 }
 
 
