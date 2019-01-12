@@ -1,4 +1,4 @@
-#include<stdio.h>
+ c-programs/add-2-frac.c #include<stdio.h>
  struct frac
 {
  float x,y;                      
