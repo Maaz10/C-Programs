@@ -14,30 +14,27 @@ int input(f* h1,f* h2)
  printf("Enter numerator of 2nd ");
  scanf("%d",&h2->x);
 
- printf("Enter denomenator of 2nd ");
+ printf("Enter denomenator of 2nd ");       
  scanf("%d",&h2->y);
 
  return 0;
 }
-double compute(f* h1,f* h2)
+int compute(f* h1,f* h2,int* num,int* deno )
 {
- double k=0;
- double sum=0;
-    k=( h1->y * h2->y );
-    sum=(( h1->x * h2->y )+( h1->y * h2->x ))/k;
- return sum;
+    *deno =( h1->y * h2->y );
+    *num =( h1->x * h2->y )+( h1->y * h2->x );
+    return 0;
 }
-void output(float o)
+void output(int o, int p)
 {
- printf("the sum is %f \n",o);
+ printf("the sum is %d/%d \n",o,p);
 }
 int main()
 {
  f h1,h2;
- float c;
+ int x,y;
  input(&h1,&h2);
- c=compute(&h1,&h2);
- output(c);
+ compute(&h1,&h2,&x,&y);
+ output(x,y);
 }
-   
     
