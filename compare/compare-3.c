@@ -1,4 +1,4 @@
-#include<stdio.h>
+https://github.com/Maaz10/c-programs/blob/master/add-n.c#include<stdio.h>
 
 void input(int *x, int *y, int *z)
 {
