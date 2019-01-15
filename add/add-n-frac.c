@@ -17,17 +17,21 @@ int input(int* n,struct frac c[])
  return 0;
 }
 
-int add(int n,struct frac* c, int* a, int* b)
+void add(int n,struct frac* c, int* a, int* b)
 {
- int i;
-for(int i=0;i<n;i++){
- printf("%d",c[i].num);
-} 
-for( i=0;i<n;i++)
-   *a += c[i].num;
+ int z=1,i,j,k;
  for( i=0;i<n;i++)
-   *b += c[i].deno;
- return 0;
+   *a += c[i].deno;
+ for( j=0;j<n;j++)
+  {
+    for( k=0;k<n;k++) 
+     {
+      if(j!=k)
+        z*=c[k].deno;
+     }
+    *b += (z*(c[j].num));
+    z=1;
+   }
 }
 
 void output(int num, int deno)
