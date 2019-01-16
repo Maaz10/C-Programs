@@ -21,7 +21,7 @@ void add(int n,struct frac* c, int* a, int* b)
 {
  int z=1,i,j,k;
  for( i=0;i<n;i++)
-   *a += c[i].deno;
+   *a *= c[i].deno;
  for( j=0;j<n;j++)
   {
     for( k=0;k<n;k++) 
@@ -30,7 +30,7 @@ void add(int n,struct frac* c, int* a, int* b)
         z*=c[k].deno;
      }
     *b += (z*(c[j].num));
-    z=1;
+   
    }
 }
 
