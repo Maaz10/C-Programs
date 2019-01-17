@@ -12,8 +12,11 @@ void output(int n ,int* x)
  for( i=0;i<n;i++)
  {
    printf("\n \t");
-   
-       for(j=i;j<(2*i)+1;j++)
+      for(int k=i;k<n;k++)
+     {
+       printf(" ");
+     }      
+     for(j=i;j<(2*i)+1;j++)
         {
          printf(" *");
         }
@@ -30,4 +33,3 @@ int main()
  output(n,x);
  return 0;
 }
- 
