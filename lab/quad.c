@@ -3,8 +3,8 @@
 
 typedef struct complex
 { 
- double x;
- double y;
+ long long x;
+ long long y;
 }comp;
 
 int input(int* a, int* b, int* c )
@@ -24,12 +24,12 @@ int compute(int a, int b, int d,comp* c)
  y=(pow(x,0.5));
  c->x=((f+y)/z);
  c->y=((f-y)/z);
-  printf("the roots are %f and %f ",c->x,c->y);
+  printf("the roots are %lld and %lld ",c->x,c->y);
  return 0;
 }
 void output(comp c)
 {
- printf("the roots are %f and %f ",c.x,c.y);
+ printf("the roots are %lld and %lld ",c.x,c.y);
 }
 int main(void)
 {
