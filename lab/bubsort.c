@@ -25,6 +25,7 @@ int compute(int n,int* x )
       t=x[i];
       x[i]=x[i+1];
       x[i+1]=t;
+    }
   }
  return 0;
 }
