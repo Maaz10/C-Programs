@@ -19,10 +19,12 @@ int compute(int n,int* x )
 
  for(int i=0;i<n;i++)
   {
+    int t;
     if(x[i]>x[i+1])
-    
-     x[i]=x[i+1];
-     x[i+1]=x[i];
+     {
+      t=x[i];
+      x[i]=x[i+1];
+      x[i+1]=t;
   }
  return 0;
 }
