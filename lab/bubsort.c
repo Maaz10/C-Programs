@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 
 int getn(int* n)
@@ -16,8 +17,10 @@ int input(int n, int x[n])
 }
 int compute(int n,int* x )
 {
+ for(int j=0;j<n;j++)
+ {
 
- for(int i=0;i<n;i++)
+  for(int i=0;i<(n-j);i++)
   {
     int t;
     if(x[i]>x[i+1])
@@ -25,7 +28,8 @@ int compute(int n,int* x )
       t=x[i];
       x[i]=x[i+1];
       x[i+1]=t;
-    }
+     }
+   }
   }
  return 0;
 }
