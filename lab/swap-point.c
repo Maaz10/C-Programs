@@ -7,11 +7,12 @@ int input(int* x,int* y)
  return 0;
 }
 
-int compute(int* x,int* y,int* t)
+int compute(int* x,int* y)
 {
- *t=*x;
+ int t;
+ t=*x;
  *x=*y;
- *y=*t;
+ *y=t;
  return 0;
 }
  
@@ -22,9 +23,9 @@ void output(int x, int y)
 
 int main(void)
 {
- int x,y,z;
+ int x,y;
  input(&x,&y);
- compute(&x,&y,&z);
+ compute(&x,&y);
  output(x,y);
  return 0;
 }
