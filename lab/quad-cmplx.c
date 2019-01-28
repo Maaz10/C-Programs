@@ -15,26 +15,26 @@ int input(int* a, int* b, int* c )
  return 0;
  }
 
-int compute(int a, int b, int d,comp* c1,int* x)
+int compute(int a, int b, int d,comp* c1)
 {
- int c,y,z,f;
- 
+ int c,x,y,z,f;
  z=(2*a);
  f=-b;
- *x=(b*b)-(4*a*d);
+ x=(b*b)-(4*a*d);
  if(x<0)
  {
-  c=-(*x);
+  c=-(x);
   c1->x=f/z;
   c1->y=(sqrt(c))/z;
+ printf("%lld+i%lld",c1->x,c1->y);
  }
  else
  {
-  y=(pow(*x,0.5));
+  y=(pow(x,0.5));
   c1->x=((f+y)/z);
   c1->y=((f-y)/z);
  }
- return 0;
+ return x;
 }
 void output(comp c1,int z)
 {
@@ -54,7 +54,7 @@ int main(void)
  int a,b,d;
  int x;
  input(&a,&b,&d);
- compute(a,b,d,&c1,&x);
+ x=compute(a,b,d,&c1);
  output(c1,x);
  return 0;
 }
