@@ -26,7 +26,6 @@ int compute(int a, int b, int d,comp* c1)
   c=-(x);
   c1->x=f/z;
   c1->y=(sqrt(c))/z;
- printf("%lld+i%lld",c1->x,c1->y);
  }
  else
  {
@@ -40,12 +39,12 @@ void output(comp c1,int z)
 {
  if(z<0)
  {
- printf("the roots are %lld and %lld ",c1.x,c1.y);
+ printf("roots are imaginary \n");
+ printf("%lld+i(%lld) and %lld-i(%lld)",c1.x,c1.y,c1.x,c1.y);
  }
  else
  {
- printf("roots are imaginary \n");
- printf("%lld+i(%lld) and %lld-i(%lld)",c1.x,c1.y,c1.x,c1.y);
+  printf("the roots are %lld and %lld ",c1.x,c1.y);
  }
 }
 int main(void)
