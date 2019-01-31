@@ -8,32 +8,27 @@ void input(int* a,int* b,int* c)
  scanf("%d %d %d",a,b,c);
 }
 
-int compute(int a, int b, int d,float* c1,float* c2)
+void compute(int a, int b, int d,double complex* c1,double complex* c2)
 {
-  int x,z,f;
-  float y;
+  int z,f;
   z=(2*a);
   f=-b;
-  x=(b*b)-(4*a*d);
-  y=(csqrt(x));
-  *c1=((csqrt(x))/z);
-  *c2=((f-(csqrt(x)))/z);
-  return y;
+  *c1=(f/z)+(csqrt((b*b)-(4*a*d))/z);
+  *c2=(f/z)-(csqrt((b*b)-(4*a*d))/z);
 }
-void output(float c1,float c2,float y)
+void output(double complex c1,double complex c2)
 {
  {
- printf("imag %f",y);
  printf("roots are imaginary \n");
- printf("%f+i(%f) and %f-i(%f)",creal(c2),cimag(c1),creal(c2),cimag(c1));
+ printf("%f+%fi and %f%fi",creal(c1),cimag(c1),creal(c2),cimag(c2));
  }
 }
 int main(void)
 {
- float c1,c2;
- int a,b,d,y;
+ double complex  c1,c2;
+ int a,b,d;
  input(&a,&b,&d);
- y=compute(a,b,d,&c1,&c2);
- output(c1,c2,y);
+ compute(a,b,d,&c1,&c2);
+ output(c1,c2);
  return 0;
 }
