@@ -6,12 +6,17 @@ void input(int* x)
   scanf("%d",x);
 }
 
-void compute(int y,int* m)
-{
- 
-  *m = *m +(y*y*y);
-}     
-
+void compute(int x,int* m,int* temp)
+{ 
+ int y=0;
+  *temp=x;   
+ while (x != 0)
+    {
+        y = x % 10;
+        *m = *m +(y*y*y) ;
+        x=x/10;
+    }
+}
 void output(int y,int m)
 {
  printf("the sum is %d",m);
@@ -25,14 +30,12 @@ void output(int y,int m)
 
 int main(void)
 {
- int x,z;
+ int x=0,y=0,z=0;
  input(&x);
- compute(x,&z);
- output(x,z);
+ compute(x,&z,&y);
+ output(y,z);
  return 0;
 }
- 
-
  
 
  
