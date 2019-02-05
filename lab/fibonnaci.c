@@ -34,6 +34,7 @@ int main()
 	output(n,x);
 	return 0;
 }
+
 	   
   
   
