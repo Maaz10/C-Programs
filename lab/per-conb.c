@@ -15,11 +15,6 @@ void compute(int n,int r,int* p,int* c)
  d=n;
  for(int i=0;i<n;i++)
   {
-   if(d==0)
-    {
-     exit(0);
-    }
-    else
      {
       a=a*d;
       d--;
