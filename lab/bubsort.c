@@ -1,44 +1,42 @@
-
 #include<stdio.h>
 
-int getn(int* n)
+void getn(int* n)
 {
  printf("Enter the number of elements ");
  scanf("%d",n);
- return 0;
 }
  
-int input(int n, int x[n])
-{
- printf("Enter the elements ");
- for(int i=0;i<n;i++)
-  scanf("%d",&x[i]);
- return 0;
-}
-int compute(int n,int* x )
-{
- for(int j=0;j<n;j++)
+void input(int n, int x[n])
  {
+  printf("Enter the elements ");
+  for(int i=0;i<n;i++)
+   scanf("%d",&x[i]);
+}
 
-  for(int i=0;i<(n-j);i++)
+void compute(int n,int* x )
+ { 
+  int t=0;
+  for(int j=0;j<n;j++)
   {
-    int t;
+   for(int i=0;i<(n-j-1);i++)
+   {
     if(x[i]>x[i+1])
      {
       t=x[i];
       x[i]=x[i+1];
       x[i+1]=t;
      }
-   }
+    }
   }
- return 0;
 }
+
 void output(int n,int* x)
 {
  printf("The sorted form is \n");
  for(int i=0;i<n;i++)
-  printf(" %d ",x[i]);
+ printf(" %d ",x[i]);
 }
+
 int main()
 {
  int n;
