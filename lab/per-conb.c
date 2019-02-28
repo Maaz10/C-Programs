@@ -8,7 +8,34 @@ void input(int* n,int*r)
  printf("Enter the value of r:");
  scanf("%d",r);
 }
-void compute(int n,int r,int* p,int* c)
+void per(int n,int r,int* p)
+{
+ int a=1,b=1,f,d;
+ f=n;
+ d=n;
+ for(int i=0;i<n;i++)
+  {
+     {
+      a=a*d;
+      d--;
+      } 
+  }
+ for(int i=0;i<n;i++)
+  {
+   if((f-r)<=0)
+    {
+     break;
+    }
+    else
+    {
+     b=b*(f-r);
+     f--;
+    }
+ }
+
+   *p=a/b;
+}
+void comb(int n,int r,int* c)
 {
  int a=1,b=1,e=1,f,d;
  f=n;
@@ -44,8 +71,7 @@ void compute(int n,int r,int* p,int* c)
      r--;
     }
  }
-   *p=a/b;
-   *c=a/(b*e);
+ *c=a/(b*e);
 }
 
 void output(int p,int c)
@@ -59,7 +85,8 @@ int main()
 {
  int n,r,p,c;
  input(&n,&r);
- compute(n,r,&p,&c);
+ per(n,r,&p);
+ comb(n,r,&c);
  output(p,c);
  return 0;
 }
