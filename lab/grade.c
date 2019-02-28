@@ -8,7 +8,7 @@ int input()
    return z;
 }
 
-int compute(int x)
+int grade(int x)
 {
 
   if(x>=95)
@@ -64,7 +64,7 @@ int compute(int x)
 int main(void)
 {
  int n=input();
- compute(n);
+ grade(n);
  return 0;
 }
 
