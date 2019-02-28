@@ -6,7 +6,7 @@ void input(int* n)
 	scanf("%d",n);
 }
 
-void compute(int n,int x[n])
+void fibo(int n,int x[n])
 {
    x[0]=1;
    x[1]=1;
@@ -30,7 +30,7 @@ int main()
 	int n;
 	input(&n);
 	int x[n];
-	compute(n,x);
+	fibo(n,x);
 	output(n,x);
 	return 0;
 }
