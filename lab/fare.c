@@ -8,7 +8,7 @@ void input(char* v,int* t)
  scanf("%d",t);
 }
 
-void compute(char v,int t,int* c)
+void fare(char v,int t,int* c)
 {
  switch(v)
  {
@@ -56,7 +56,7 @@ int main()
  int t,c=0;
  char v;
  input(&v,&t);
- compute(v,t,&c);
+ fare(v,t,&c);
  output(c);
  return 0;
 }      
