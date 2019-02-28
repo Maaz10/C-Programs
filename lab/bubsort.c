@@ -16,6 +16,7 @@ void input(int n, int x[n])
 void compute(int n,int* x )
  { 
   int t=0;
+  int flag=0;
   for(int j=0;j<n;j++)
   {
    for(int i=0;i<(n-j-1);i++)
@@ -25,8 +26,13 @@ void compute(int n,int* x )
       t=x[i];
       x[i]=x[i+1];
       x[i+1]=t;
+      flag=1;
      }
     }
+   if(flag==0)
+   {
+    break;
+   }
   }
 }
 
