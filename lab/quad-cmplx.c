@@ -8,14 +8,13 @@ typedef struct complex
  long long y;
 }comp;
 
-int input(int* a, int* b, int* c )
+void input(int* a, int* b, int* c )
 {
  printf("Enter th coeffecients of a b and c ");
  scanf("%d %d %d",a,b,c);
- return 0;
  }
 
-int compute(int a, int b, int d,comp* c1)
+int roots(int a, int b, int d,comp* c1)
 {
  int c,x,y,z,f;
  z=(2*a);
@@ -53,7 +52,7 @@ int main(void)
  int a,b,d;
  int x;
  input(&a,&b,&d);
- x=compute(a,b,d,&c1);
+ x=roots(a,b,d,&c1);
  output(c1,x);
  return 0;
 }
