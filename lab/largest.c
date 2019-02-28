@@ -11,7 +11,7 @@ void input(int*x, int* y, int* z)
   printf("Enter the third number ");
   scanf("%d",z);
 }
-int comp(int x, int y, int z)
+int large(int x, int y, int z)
 {
  if(x>=y && x>=z)
    return x;
@@ -29,6 +29,6 @@ int main()
 {
  int x,y,z,a;
  input(&x,&y,&z);
- a=comp(x,y,z);
+ a=large(x,y,z);
  output(a);
 }
