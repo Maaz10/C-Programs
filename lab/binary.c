@@ -15,7 +15,7 @@ void input(int n, int x[n],int* s)
  scanf("%d",s);
 }
 
-int compute(int n,int x[],int s)
+int search(int n,int x[],int s)
 {
  int mid,low,high;
  low=0;
@@ -50,7 +50,7 @@ int main()
  getn(&n);
  int x[n],s,mid;
  input(n,x,&s);
- mid=compute(n,x,s);
+ mid=search(n,x,s);
  output(mid);
  return 0;
 }
