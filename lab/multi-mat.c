@@ -41,7 +41,7 @@ void input(int m1,int n1,int m2,int n2,int x[m1][n1],int y[m2][n2])
   }
 }
 
-int compute(int m1,int n1,int m2,int n2,int x[m1][n1],int y[m2][n2],int z[100][100])
+void multi(int m1,int n1,int m2,int n2,int x[m1][n1],int y[m2][n2],int z[100][100])
 {
  if(n1!=m2)
  {
@@ -62,7 +62,6 @@ int compute(int m1,int n1,int m2,int n2,int x[m1][n1],int y[m2][n2],int z[100][1
    }
   }
  }
- return 0;
 }
 
 void output(int m,int n,int z[100][100])
@@ -84,8 +83,7 @@ int main()
  getn(&m1,&m2,&n1,&n2,&m,&n);
  int x[m1][n1],y[m2][n2],z[100][100];
  input(m1,n1,m2,n2,x,y);
- 
- compute(m1,n1,m2,n2,x,y,z);
+ multi(m1,n1,m2,n2,x,y,z);
  output(m,n,z);
  return 0;
 }
