@@ -7,7 +7,7 @@ int input(int* x,int* y)
  return 0;
 }
 
-int compute(int* x,int* y)
+int swap(int* x,int* y)
 {
  int t;
  t=*x;
@@ -25,7 +25,7 @@ int main(void)
 {
  int x,y;
  input(&x,&y);
- compute(&x,&y);
+ swap(&x,&y);
  output(x,y);
  return 0;
 }
