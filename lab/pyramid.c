@@ -1,11 +1,11 @@
 #include<stdio.h>
 
-int input(int* n)
+void input(int* n)
 {
  printf("Enter the number of rows ");
  scanf("%d",n);
- return 0;
 }
+
 void output(int n ,int* x)
 {
  int i,j;
@@ -25,6 +25,7 @@ void output(int n ,int* x)
   }
  printf("\n");
 }
+
 int main()
 {  
  int n;
