@@ -6,7 +6,7 @@ void input(char s[])
  scanf("%s",s);
 }
 
-void compute(char s[],char f[])
+void copy(char s[],char f[])
 {
  for(int i=0;i<strlen(s);i++)
  {
@@ -24,7 +24,7 @@ int main()
  char s[100];
  char f[100];
  input(s);
- compute(s,f);
+ copy(s,f);
  output(f);
  return 0;
 }
