@@ -20,21 +20,7 @@ int compute(int n,int x[],int s)
  int mid,low,high;
  low=0;
  high=n-1;
- for(int j=0;j<n;j++)
- {
 
-  for(int i=0;i<(n-j);i++)
-  {
-    int t;
-    if(x[i]>x[i+1])
-     {
-      t=x[i];
-      x[i]=x[i+1];
-      x[i+1]=t;
-     }
-   }
-  }
-  
   while(low<=high)
   {
    mid=(high+low)/ 2;
