@@ -15,13 +15,17 @@ void getn(int* n)
  scanf("%d",n);
 }
 
-void input(int n,struct stud* f,int* r)
+void input(int n,struct stud* f)
 {
  printf("Enter the roll.no  name  dept  marks  grade ");
  for(int i=0;i<n;i++)
  {
   scanf("%d %s %s %d %s", &f[i].roll, f[i].name, f[i].dept, &f[i].marks, f[i].grade);
  }
+}
+
+void rollno(int* r)
+{
  printf("Enter the roll number ");
  scanf("%d",r);
 }
@@ -49,9 +53,9 @@ int main(void)
  getn(&n);
  struct stud f[n];
  int r,z;
- input(n,f,&r);
+ input(n,f);
+ rollno(&r);
  compute(n,f,r,&z);
  output(f,z);
  return 0;
 }
- 
