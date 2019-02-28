@@ -18,7 +18,7 @@ void input(int m,int x[m][m])
  }
 }
 
-void compute(int m,int x[m][m],int y[m] )
+void diag(int m,int x[m][m],int y[m] )
 {
   for(int i=0;i<m;i++)
  {
@@ -46,7 +46,7 @@ int main()
  getn(&m);
  int x[m][m],y[m];
  input(m,x);
- compute(m,x,y);
+ diag(m,x,y);
  output(m,y);
  return 0;
 }
