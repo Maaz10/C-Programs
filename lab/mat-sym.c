@@ -18,7 +18,7 @@ void input(int n,int x[n][n])
  }
 }
 
-void compute(int n,int x[n][n],int* m)
+void symm(int n,int x[n][n],int* m)
 {
  int y[n][n];
  for(int i=0;i<n;i++)
@@ -61,7 +61,7 @@ int main()
  getn(&n);
  int x[n][n],m;
  input(n,x);
- compute(n,x,&m);
+ symm(n,x,&m);
  output(m);
  return 0;
 }
