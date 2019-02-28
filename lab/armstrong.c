@@ -6,7 +6,7 @@ void input(int* x)
   scanf("%d",x);
 }
 
-void compute(int x,int* m,int* temp)
+void armstrong(int x,int* m,int* temp)
 { 
  int y=0;
   *temp=x;   
@@ -32,7 +32,7 @@ int main(void)
 {
  int x=0,y=0,z=0;
  input(&x);
- compute(x,&z,&y);
+ armstrong(x,&z,&y);
  output(y,z);
  return 0;
 }
