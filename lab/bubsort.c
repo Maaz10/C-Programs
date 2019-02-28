@@ -13,7 +13,7 @@ void input(int n, int x[n])
    scanf("%d",&x[i]);
 }
 
-void compute(int n,int* x )
+void sort(int n,int* x )
  { 
   int t=0;
   int flag=0;
@@ -49,7 +49,7 @@ int main()
  getn(&n);
  int x[n];
  input(n,x);
- compute(n,x);
+ sort(n,x);
  output(n,x);
  return 0;
 }
