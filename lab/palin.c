@@ -6,7 +6,7 @@ void input(int* n)
  scanf("%d",n);
 }
 
-void compute(int n,int* r)
+void palin(int n,int* r)
 {
  int j;
  j=n;
@@ -30,7 +30,7 @@ int main()
 {
  int n,r=0;
  input(&n);
- compute(n,&r);
+ palin(n,&r);
  output(n,r);
  return 0;
 }
