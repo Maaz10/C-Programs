@@ -15,10 +15,10 @@ void input(int n,int x[])
 
 int dupli(int n,int x[])
 {
- int  m;
+ int  m=0;
  for(int i=0;i<n;i++)
  {
-  for(int j=0;j<n;j++)
+  for(int j=0;j!=i&&j<n;j++)
   {
    if(x[i]==x[j])
    {
@@ -38,7 +38,7 @@ int main()
 {
  int n;
  getn(&n);
- int a[n],m=0;
+ int a[n],m;
  input(n,a);
  m=dupli(n,a);
  output(m);
