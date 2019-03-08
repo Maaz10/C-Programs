@@ -1,12 +1,12 @@
 #include<stdio.h>
 
-void input(int* n)
+void inputnumber(int* n)
 {
  printf("Enter the number ");
  scanf("%d",n);
 }
 
-void palin(int n,int* r)
+void reverse(int n,int* r)
 {
  int j;
  j=n;
@@ -18,7 +18,7 @@ void palin(int n,int* r)
 
 }
 
-void output(int n,int r)
+void outputresult(int n,int r)
 {
  if(n == r)
   printf("It is a palindrome\n");
@@ -29,8 +29,8 @@ void output(int n,int r)
 int main()
 {
  int n,r=0;
- input(&n);
- palin(n,&r);
- output(n,r);
+ inputnumber(&n);
+ reverse(n,&r);
+ outputresult(n,r);
  return 0;
 }
