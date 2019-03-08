@@ -20,7 +20,7 @@ void inputelements(int n,int x[n][n])
 
 int transpose(int n,int x[n][n])
 {
- int y[n][n],m;
+ int y[n][n],flag=0;
  for(int i=0;i<n;i++)
  {
   for(int j=0;j<n;j++)
@@ -34,16 +34,16 @@ int transpose(int n,int x[n][n])
   {
    if(x[i][j]!=y[i][j])
    {
-    m=0;
+    flag=1;
    }
   }
  }
- return m;
+ return flag;
 }
 
-void outputresult(int m)
+void outputresult(int flag)
 {
- if(m!=0)
+ if(flag!=1)
  {
   printf("The matrix is symetric ");
  }
@@ -57,9 +57,9 @@ int main()
 {
  int n;
  getorder(&n);
- int x[n][n],m;
+ int x[n][n],flag;
  inputelements(n,x);
- m=transpose(n,x);
- outputresult(m);
+ flag=transpose(n,x);
+ outputresult(flag);
  return 0;
 }
