@@ -19,6 +19,7 @@ void sort(int n,int* x )
   int flag=0;
   for(int j=0;j<n;j++)
   {
+   flag=0;
    for(int i=0;i<(n-j-1);i++)
    {
     if(x[i]>x[i+1])
