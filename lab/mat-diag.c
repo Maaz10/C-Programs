@@ -1,56 +1,52 @@
 #include<stdio.h>
 
-void getn(int* m)
+void getorder(int* n)
 {
  printf("Enter the number of rows/columns ");
- scanf("%d",m);
+ scanf("%d",n);
 }
 
-void input(int m,int x[m][m])
+void inputelements(int n,int x[n][n])
 {
  printf("Enter the elements \n");
- for(int i=0;i<m;i++)
+ for(int i=0;i<n;i++)
  {
-  for(int j=0;j<m;j++)
+  for(int j=0;j<n;j++)
    {
     scanf("%d",&x[i][j]);
    }
  }
 }
 
-void diag(int m,int x[m][m],int y[m] )
+void diagonal(int n,int x[n][n],int y[n] )
 {
-  for(int i=0;i<m;i++)
+  for(int i=0;i<n;i++)
  {
-  for(int j=0;j<m;j++)
+  for(int j=0;j<n;j++)
    {
     if(i == j)
      {
-       for(int k=i;k<m;k++)    
+       for(int k=i;k<n;k++)    
         y[k]=x[i][j];
      }
    }
   } 
 }
 
-void output(int m,int y[m])
+void outputresult(int n,int y[n])
 {
  printf("The diagonal elements are : \n");
- for(int i=0;i<m;i++)
+ for(int i=0;i<n;i++)
  printf("%d\n",y[i]);
 }
 
 int main()
 {
- int m;
- getn(&m);
- int x[m][m],y[m];
- input(m,x);
- diag(m,x,y);
- output(m,y);
+ int n;
+ getorder(&n);
+ int x[n][n],y[n];
+ inputelements(n,x);
+ diagonal(n,x,y);
+ outputresult(n,y);
  return 0;
 }
-
-
-
-
