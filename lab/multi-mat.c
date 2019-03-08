@@ -35,9 +35,8 @@ int multi(int m1,int n1,int m2,int n2,int x[m1][n1],int y[m2][n2],int z[m1][n2])
    {
      for(int j=0;j<m2;j++)
     {
-     {
-      z[i][k]=z[i][k]+(x[i][j]*y[j][k]);
-     }
+     z[i][k]=0;
+     z[i][k]=z[i][k]+(x[i][j]*y[j][k]);
    }
    }
   }
