@@ -32,10 +32,7 @@ void symm(int n,int x[n][n],int* m)
  {
   for(int j=0;j<n;j++)
   {
-   if(x[i][j]==y[i][j])
-   {
-   }
-   else
+   if(x[i][j]!=y[i][j])
    {
     *m=0;
    }
