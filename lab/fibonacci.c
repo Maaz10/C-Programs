@@ -1,12 +1,12 @@
 #include<stdio.h>
 
-void input(int* n)
+void inputnumber(int* n)
 {
 	printf("Enter the number of terms needed ");
 	scanf("%d",n);
 }
 
-void fibo(int n,int x[n])
+void fibonacci(int n,int x[n])
 {
    x[0]=1;
    x[1]=1;
@@ -28,9 +28,9 @@ void output(int n, int x[n])
 int main()
 {
 	int n;
-	input(&n);
+	inputnumber(&n);
 	int x[n];
-	fibo(n,x);
+	fibonacci(n,x);
 	output(n,x);
 	return 0;
 }
