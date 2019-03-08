@@ -6,9 +6,21 @@ void input(char s[])
  scanf("%s",s);
 }
 
-void copy(char s[],char f[])
+void stringlength(char s[],int *length)
 {
- for(int i=0;i<strlen(s);i++)
+ for(int i=0;i<100;i++)
+ {
+  if(s[i]=='\0')
+  {
+   *length=i;
+   break;
+   }
+ }
+}
+
+void copy(char s[],char f[],int length)
+{
+ for(int i=0;i<length;i++)
  {
   f[i]=s[i];
  }
@@ -23,8 +35,10 @@ int main()
 {
  char s[100];
  char f[100];
+ int length;
  input(s);
- copy(s,f);
+ stringlength(s,&length);
+ copy(s,f,length);
  output(f);
  return 0;
 }
