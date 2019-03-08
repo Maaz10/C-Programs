@@ -1,12 +1,12 @@
 #include<stdio.h>
 
-void getn(int* n)
+void getorder(int* n)
 {
  printf("Enter the no of rows/columns: ");
  scanf("%d",n);
 }
 
-void input(int n,int x[n][n])
+void inputelements(int n,int x[n][n])
 {
  printf("Enter the elements \n");
  for(int i=0;i<n;i++)
@@ -18,9 +18,9 @@ void input(int n,int x[n][n])
  }
 }
 
-void symm(int n,int x[n][n],int* m)
+int transpose(int n,int x[n][n])
 {
- int y[n][n];
+ int y[n][n],m;
  for(int i=0;i<n;i++)
  {
   for(int j=0;j<n;j++)
@@ -34,13 +34,14 @@ void symm(int n,int x[n][n],int* m)
   {
    if(x[i][j]!=y[i][j])
    {
-    *m=0;
+    m=0;
    }
   }
  }
+ return m;
 }
 
-void output(int m)
+void outputresult(int m)
 {
  if(m!=0)
  {
@@ -55,10 +56,10 @@ void output(int m)
 int main()
 {
  int n;
- getn(&n);
+ getorder(&n);
  int x[n][n],m;
- input(n,x);
- symm(n,x,&m);
- output(m);
+ inputelements(n,x);
+ m=transpose(n,x);
+ outputresult(m);
  return 0;
 }
