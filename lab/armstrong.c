@@ -1,26 +1,26 @@
 #include<stdio.h>
 
-void input(int* x)
+void input(int* n)
 {
  printf("Enter the number ");
-  scanf("%d",x);
+  scanf("%d",n);
 }
 
-void armstrong(int x,int* m,int* temp)
+void armstrong(int n,int* a,int* b)
 { 
  int y=0;
-  *temp=x;   
- while (x != 0)
+  *b=x;   
+ while (n != 0)
     {
-        y = x % 10;
-        *m = *m +(y*y*y) ;
-        x=x/10;
+        y = n % 10;
+        *a = *a +(y*y*y) ;
+        n=n/10;
     }
 }
-void output(int y,int m)
+void output(int a,int b)
 {
- printf("the sum is %d",m);
-  if(m == y)
+ printf("the sum is %d",a);
+  if(a == b)
   {
    printf("It is an Armstrong number");
   }
@@ -30,12 +30,9 @@ void output(int y,int m)
 
 int main(void)
 {
- int x=0,y=0,z=0;
- input(&x);
- armstrong(x,&z,&y);
- output(y,z);
+ int n=0,a=0,b=0;
+ input(&n);
+ armstrong(n,&a,&b);
+ output(a,b);
  return 0;
 }
- 
-
- 
