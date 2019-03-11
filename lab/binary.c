@@ -1,18 +1,26 @@
 #include<stdio.h>
 
-void getn(int* n)
+int getn()
 {
+ int n;
  printf("Enter the number of elements ");
- scanf("%d",n);
+ scanf("%d",&n);
+ return n;
 }
  
-void input(int n, int x[n],int* s)
+void inputarray(int n, int x[n])
 {
  printf("Enter the elements ");
  for(int i=0;i<n;i++)
   scanf("%d",&x[i]);
+}
+
+int searchelement()
+{
+ int s;
  printf("Enter the search element ");
- scanf("%d",s);
+ scanf("%d",&s);
+ return s;
 }
 
 int search(int n,int x[],int s)
@@ -29,13 +37,16 @@ int search(int n,int x[],int s)
     low=mid+1;
    }
    else
-   if(s==x[mid])
+   if(s<x[mid])
    {
-    break;
-   }
-   else
     high=mid-1;
    }
+   else
+   if(s==x[mid])
+   {
+   break;
+   }
+  }
   return mid;
  
 }
@@ -47,9 +58,10 @@ void output(int mid)
 int main()
 {
  int n;
- getn(&n);
+ n=getn();
  int x[n],s,mid;
- input(n,x,&s);
+ inputarray(n,x);
+ s=searchelement();
  mid=search(n,x,s);
  output(mid);
  return 0;
