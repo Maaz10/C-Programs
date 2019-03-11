@@ -1,10 +1,12 @@
 #include<stdio.h>
 #include<math.h>
 
-void inputnumber(int* n)
+int inputnumber()
 {
+ int n;
  printf("Enter the number ");
-  scanf("%d",n);
+ scanf("%d",&n);
+ return n;
 }
 
 int limit(int n)
@@ -44,7 +46,7 @@ void outputresult(int a,int b)
 int main(void)
 {
  int n=0,a=0,b=0,c=0;
- inputnumber(&n);
+ n=inputnumber();
  c=limit(n);
  armstrong(n,&a,&b,c);
  outputresult(a,b);
