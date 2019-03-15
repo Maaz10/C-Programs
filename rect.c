@@ -3,8 +3,16 @@
 
 struct vertice
 {
- float x1,y1,x2,y2,x3,y3;
+ float x1,y1,x2,y2,x3,y3,l,b,a;
 };
+
+int  instance()
+{
+ int n;
+ printf("Enter the instances ");
+ scanf("%d",&n);
+ return n;
+}
 
 void input(struct vertice *c)
 {
@@ -16,28 +24,29 @@ void input(struct vertice *c)
  scanf("%f %f",&c->x3,&c->y3);
 }
 
-void area(struct vertice c,float *a)
+void area(struct vertice *c)
 {
- float l,b;
- l=sqrt(pow((c.x2-c.x1),2)+pow((c.y2-c.y1),2));
- printf("l %f",l);
- b=sqrt(pow((c.x3-c.x1),2)+pow((c.y3-c.y1),2));
- printf("b %f",b);
- *a=l*b;
- printf("a %f",*a);
+ c->l=sqrt(pow((c->x2-c->x1),2)+pow((c->y2-c->y1),2));
+ c->b=sqrt(pow((c->x3-c->x1),2)+pow((c->y3-c->y1),2));
+ c->a=c->l*c->b;
 }
 
-void output(float a)
+void output(struct vertice c)
 {
- printf("The area is %f",a);
+ printf("The area is %f",c.a);
 }
 
 int main()
 {
+ int n,i=0;
  struct vertice c;
- float a;
- input(&c);
- area(c,&a);
- output(a);
+ n=instance();
+ while(i<n)
+ {
+  input(&c);
+  area(&c);
+  output(c);
+  i++;
+ }
  return 0;
 }
