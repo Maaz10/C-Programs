@@ -1,9 +1,15 @@
 #include<stdio.h>
 #include<math.h>
 
-struct vertice
+struct point
 {
- float x1,y1,x2,y2,x3,y3,a,b,c,length,breadth,area;
+ float x,y;
+};
+
+struct rectangle
+{
+ float length,breadth,area;
+ struct point p[3];
 };
 
 int  instance()
@@ -14,69 +20,47 @@ int  instance()
  return n;
 }
 
-void input(struct vertice *c)
+void input_points(struct rectangle *c)
 {
- printf("Enter 1st x and y ");
- scanf("%f %f",&c->x1,&c->y1);
+ printf("\nEnter 1st x and y ");
+ scanf("%f %f",&c->p[0].x,&c->p[0].y);
  printf("Enter 2nd x and y ");
- scanf("%f %f",&c->x2,&c->y2);
+ scanf("%f %f",&c->p[1].x,&c->p[1].y);
  printf("Enter 3rd x and y ");
- scanf("%f %f",&c->x3,&c->y3);
+ scanf("%f %f",&c->p[2].x,&c->p[2].y);
 }
 
-void length_breadth(struct vertice *c)
+void length_breadth(struct rectangle *c)
 {
- c->a=sqrt(pow((c->x2-c->x1),2)+pow((c->y2-c->y1),2));
- c->b=sqrt(pow((c->x3-c->x1),2)+pow((c->y3-c->y1),2));
- c->c=sqrt(pow((c->x3-c->x2),2)+pow((c->y3-c->y2),2));
- if(c->a<c->b && c->a<c->c)
+ float x,y,z;
+ x = sqrt( pow( (c->p[1].x - c->p[0].x) ,2) + pow( (c->p[1].y - c->p[0].y) ,2));
+ y = sqrt( pow( (c->p[2].x - c->p[1].x) ,2) + pow( (c->p[2].y - c->p[1].y) ,2));
+ z = sqrt( pow( (c->p[2].x - c->p[0].x) ,2) + pow( (c->p[2].y - c->p[0].y) ,2));
+ 
+ if ( x>y && x>z)
  {
-  if(c->b<c->c)
-  {
-   c->length=c->a;
-   c->breadth=c->b;
-  }
-  else
-  {
-   c->length=c->a;
-   c->breadth=c->c;
-  }
+    c->length=y;
+    c->lenght=z;
  }
  else
-  if(c->b<c->a && c->b<c->c)
-  {
-   if(c->a<c->c)
-   {
-    c->length=c->a;
-    c->breadth=c->b;
-   }
-   else
-   {
-    c->length=c->c;
-    c->breadth=c->b;
-   }
-  }
-  else
-  {
-   if(c->a<c->b)
-   {
-    c->length=c->c;
-    c->breadth=c->a;
-   }
-   else
-   {
-    c->length=c->c;
-    c->breadth=c->b;
-   }
-  }
+ if( y>x && y>z)
+ {
+   c->length = z;
+   c->breadth = x;
+ }
+ else
+ {
+    c->length = x;
+    c->breadth = y;
+ }
 }
 
-void area(struct vertice *c)
+void area(struct rectangle *c)
 {
- c->area=c->length*c->breadth;
+ c->area = c->length * c->breadth;
 }
 
-void output(struct vertice c)
+void output(struct rectangle c)
 {
  printf("The area is %f",c.area);
 }
@@ -84,11 +68,11 @@ void output(struct vertice c)
 int main()
 {
  int n,i=0;
- struct vertice c;
+ struct rectangle c;
  n=instance();
  while(i<n)
  {
-  input(&c);
+  input_points(&c);
   length_breadth(&c);
   area(&c); 
   output(c);
