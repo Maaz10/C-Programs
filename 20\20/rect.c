@@ -20,63 +20,76 @@ int  instance()
  return n;
 }
 
-void input_points(struct rectangle *c)
+void input_points(int n,struct rectangle c[n])
 {
- printf("\nEnter 1st x and y ");
- scanf("%f %f",&c->p[0].x,&c->p[0].y);
- printf("Enter 2nd x and y ");
- scanf("%f %f",&c->p[1].x,&c->p[1].y);
- printf("Enter 3rd x and y ");
- scanf("%f %f",&c->p[2].x,&c->p[2].y);
+ for(int i=0;i<n;i++)
+ {
+  printf("The instance is %d\n",i+1);
+  for(int j=0;j<3;j++)
+  {
+   printf("Enter no.%d x and y ",j+1);
+   scanf("%f %f",&c[i].p[j].x,&c[i].p[j].y);
+  }
+ }
+ printf("\n");
 }
 
-void length_breadth(struct rectangle *c)
+void length_breadth(int n,struct rectangle c[n])
 {
  float x,y,z;
- x = sqrt( pow( (c->p[1].x - c->p[0].x) ,2) + pow( (c->p[1].y - c->p[0].y) ,2));
- y = sqrt( pow( (c->p[2].x - c->p[1].x) ,2) + pow( (c->p[2].y - c->p[1].y) ,2));
- z = sqrt( pow( (c->p[2].x - c->p[0].x) ,2) + pow( (c->p[2].y - c->p[0].y) ,2));
- 
- if ( x>y && x>z)
+ for(int i=0;i<n;i++)
  {
-    c->length=y;
-    c->lenght=z;
- }
- else
- if( y>x && y>z)
- {
-   c->length = z;
-   c->breadth = x;
- }
- else
- {
-    c->length = x;
-    c->breadth = y;
+  x = sqrt( pow( (c[i].p[1].x - c[i].p[0].x) ,2) + pow( (c[i].p[1].y - c[i].p[0].y) ,2));
+  y = sqrt( pow( (c[i].p[2].x - c[i].p[1].x) ,2) + pow( (c[i].p[2].y - c[i].p[1].y) ,2));
+  z = sqrt( pow( (c[i].p[2].x - c[i].p[0].x) ,2) + pow( (c[i].p[2].y - c[i].p[0].y) ,2));
+  if ( x>y && x>z)
+  {
+    c[i].length=y;
+    c[i].length=z;
+  }
+  else
+  if( y>x && y>z)
+  {
+    c[i].length = z;
+    c[i].breadth = x;
+  }
+  else
+  {
+    c[i].length = x;
+    c[i].breadth = y;
+  }
  }
 }
 
-void area(struct rectangle *c)
+void area(int n,struct rectangle c[n])
 {
- c->area = c->length * c->breadth;
+ for(int i=0;i<n;i++)
+ {
+  c[i].area = c[i].length * c[i].breadth;
+ }
 }
 
-void output(struct rectangle c)
+void output(int n,struct rectangle c[n])
 {
- printf("The area is %f",c.area);
+ for(int i=0;i<n;i++)
+ { 
+  printf("The area of ");
+  for(int j=0;j<3;j++)
+  {
+   printf( "(%.1f,%.1f) ",c[i].p[j].x,c[i].p[j].y);
+  }
+  printf("is %.1f\n",c[i].area);
+ }
 }
 
 int main()
 {
- int n,i=0;
- struct rectangle c;
+ int n;
  n=instance();
- while(i<n)
- {
-  input_points(&c);
-  length_breadth(&c);
-  area(&c); 
-  output(c);
-  i++;
- }
+ struct rectangle c[n];
+ input_points(n,c);
+ length_breadth(n,c);
+ area(n,c); 
+ output(n,c);
  return 0;
 }
