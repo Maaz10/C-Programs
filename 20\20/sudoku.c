@@ -5,7 +5,7 @@ struct sudoku
  int a[9][9];
  int x,y,z,l;
 };
-void input(struct sudoku s)
+void input(struct sudoku *s)
 {
  printf("Enter the elements\n");
  for(int i=0;i<9;i++)
@@ -17,7 +17,7 @@ void input(struct sudoku s)
  }
 }
 
-void rowviable(struct sudoku s)
+void rowviable(struct sudoku *s)
 {
  s.x=0;
  for(int i=0;i<9;i++)
@@ -35,7 +35,7 @@ void rowviable(struct sudoku s)
  }
 }
 
-void columnviable(struct sudoku s)
+void columnviable(struct sudoku *s)
 {
  s.y=0;
  for(int i=0;i<9;i++)
@@ -53,7 +53,7 @@ void columnviable(struct sudoku s)
  }
 }
 
-void submatviable(struct sudoku s)
+void submatviable(struct sudoku *s)
 {
  s.z=0;
  int c=3,b=0;
@@ -77,7 +77,7 @@ void submatviable(struct sudoku s)
  }
 }
 
-void complete(struct sudoku s)
+void complete(struct sudoku *s)
 {
  s.l=0;
  for(int i=0;i<9;i++)
