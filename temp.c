@@ -1,68 +1,104 @@
 #include<stdio.h>
 
-int input()
+void main()
 {
-   int n;
-   printf("Enter the number ");
-   scanf("%d",&n);
-   return n;
-}
-
-int grade(int n,char s[])
-{
-  if(n>=95)
+ int a[9][9],x=0,y=0,z=0,l=0,b=0,c=0;
+ printf("Enter the numbers\n");
+ for(int i=0;i<9;i++)
+ {
+  for(int j=0;j<9;j++)
   {
-   s="A+";
+   scanf("%d",&a[i][j]);
   }
-  else
-   if(n>=90)
-   {
-    s="A";
-   }
-  else
-   if(n>=85)
-   {
-    s="B+";
-   } 
-  else 
-   if(n>=80)
-   { 
-     s="B";
-   }
-  else 
-   if(n>=75)
-   {
-    s="C+";
-   }
-  else 
-   if(n>=70)
-   {
-      s="C";
-   }
-  else 
-   if(n>=60)
-   {
-    s="D+";
-   }
-  else 
-   if(n>=50)
-   {
-   s="D";
-   }
-  else 
-   if(n>=40)
-   {
-    s="E";
-   }
-  else
+ }
+ 
+ for(int i=0;i<9;i++)
+ {
+  for(int j=0;i<9;i++)
   {
-   s="FAIL";
+   for(int k=0;k<9 && k!=j;k++)
+   {
+    if(a[i][j]==a[i][k])
+    {
+     x=1;
+    }
+   }
   }
+ }
+ 
+ for(int i=0;i<9;i++)
+ {
+  for(int j=0;i<9;i++)
+  {
+   for(int k=0;k<9 && k!=j;k++)
+   {
+    if(a[j][i]==a[j][k])
+    {
+     y=1;
+    }
+   }
+  }
+ }
+ 
+ while(c<0)
+ {
+ for(int i=b;i<c;i++)
+ {
+  for(int j=b;i<c;i++)
+  {
+   for(int k=0;k<3;k++)
+   {
+    if(a[i][j]==a[i][k])
+    {
+     z=1;
+     }
+    }
+   }
+  }
+  b+=3;
+  c+=3;
+ }
+ 
+ for(int i=0;i<9;i++)
+ {
+  for(int j=0;j<9;j++)
+  {
+   if(a[i][j]==0)
+   {
+    l=1;
+   }
+  }
+ }
+ 
+ if(l==1)
+ {
+  printf("incomplete ");
+ }
+ else
+ {
+  printf("complete ");
+ }
+ 
+ if(x==0 && y==0 && z==0)
+ {
+ printf("viable");
+ }
+ else
+ if(x!=0 || y!=0 || z!=0)
+ { 
+  printf("non viable");
+ }
 }
-int main(void)
-{
- char s[5];
- int n=input();
- grade(n,s);
- return 0;
-}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
