@@ -5,124 +5,157 @@ struct sudoku
  int a[9][9];
  int x,y,z,l;
 };
-void input(struct sudoku *s)
+
+int instances()
 {
- printf("Enter the elements\n");
- for(int i=0;i<9;i++)
- {
-  for(int j=0;j<9;j++)
-  {
-   scanf("%d",&s.a[i][j]);
-  }
- }
+ int n;
+ printf("Enter the number of instances ");
+ scanf("%d",&n);
+ return n;
 }
 
-void rowviable(struct sudoku *s)
+void input(int n,struct sudoku s[])
 {
- s.x=0;
- for(int i=0;i<9;i++)
+ for(int k=0;k<n;k++)
  {
-  for(int j=0;i<9;i++)
+  printf("The No.%d instance\n",k+1);
+  printf("Enter the elements\n");
+  for(int i=0;i<9;i++)
   {
-   for(int k=0;k<9 && k!=j;k++)
+   for(int j=0;j<9;j++)
    {
-    if(s.a[i][j]==s.a[i][k])
-    {
-     s.x=1;
-    }
+    scanf("%d",&s->a[i][j]);
    }
   }
  }
 }
 
-void columnviable(struct sudoku *s)
+void rowviable(int n,struct sudoku s[])
 {
- s.y=0;
- for(int i=0;i<9;i++)
+ for(int l=0;l<n;l++)
  {
-  for(int j=0;i<9;i++)
+  s[l].x=0;
+  for(int i=0;i<9;i++)
   {
-   for(int k=0;k<9 && k!=j;k++)
+   for(int j=0;i<9;i++)
    {
-    if(s.a[j][i]==s.a[j][k])
+    for(int k=0;k<9 && k!=j;k++)
     {
-     s.y=1;
-    }
-   }
-  }
- }
-}
-
-void submatviable(struct sudoku *s)
-{
- s.z=0;
- int c=3,b=0;
- while(c<9)
- {
- for(int i=b;i<c;i++)
- {
-  for(int j=b;i<c;i++)
-  {
-   for(int k=0;k<3;k++)
-   {
-    if(s.a[i][j]==s.a[i][k])
-    {
-     s.z=1;
+     if(s[l].a[i][j]==s[l].a[i][k])
+     {
+      s[l].x=1;
      }
     }
    }
   }
-  b+=3;
-  c+=3;
+  printf("%d",s[l].x);
  }
 }
 
-void complete(struct sudoku *s)
+void columnviable(int n,struct sudoku s[])
 {
- s.l=0;
- for(int i=0;i<9;i++)
+ for(int l=0;l<n;l++)
  {
-  for(int j=0;j<9;j++)
+  s[l].y=0;
+  for(int i=0;i<9;i++)
   {
-   if(s.a[i][j]==0)
+   for(int j=0;i<9;i++)
    {
-    s.l=1;
+    for(int k=0;k<9 && k!=j;k++)
+    {
+     if(s[l].a[j][i]==s[l].a[j][k])
+     {
+      s[l].y=1;
+     }
+    }
+   }
+  }
+  printf("%d",s[l].y);
+ }
+} 
+
+/*void submatviable(int n,struct sudoku s[])
+{
+ for(int l=0;l<n;l++)
+ {
+  int c=3,b=0;
+  s[l].z=0;
+  while(c<9)
+  { 
+   for(int i=b;i<c;i++)
+   {
+    for(int j=b;i<c;i++)
+    {
+     for(int k=0;k<3;k++)
+     {
+      if(s[l].a[i][j]==s[l].a[i][k])
+      {
+       s[l].z=1;
+       }
+      }
+     }
+    }
+    b+=3;
+    c+=3;
+   }
+  }
+ }*/
+
+void complete(int n,struct sudoku s[])
+{
+ for(int k=0;k<n;k++)
+ {
+  s[k].l=0;
+  for(int i=0;i<9;i++)
+  {
+   for(int j=0;j<9;j++)
+   {
+    if(s[k].a[i][j]==0)
+    {
+     s[k].l=1;
+    }
    }
   }
  }
 }
 
-void output(struct sudoku s)
+void output(int n,struct sudoku s[])
 {
- if(s.l==1)
+ for(int i=0;i<n;i++)
  {
-  printf("incomplete ");
- }
- else
- {
-  printf("complete ");
- }
+  printf("For No.%d instance\n",i+1);
+  if(s[i].l==1)
+  {
+   printf("incomplete ");
+  }
+  else
+  {
+   printf("complete ");
+  }
  
- if(s.x==0 && s.y==0 && s.z==0)
- {
- printf("viable");
- }
- else
- if(s.x!=0 || s.y!=0 || s.z!=0)
- { 
-  printf("non viable");
+  if(s[i].x==0 && s[i].y==0 /*&& s[i].z==0*/)
+  {
+   printf("viable");
+  }
+  else
+  if(s[i].x!=0 || s[i].y!=0 /*|| s[i].z!=0*/)
+  { 
+   printf("non viable");
+  }
  }
 }
 
 int main()
 {
- struct sudoku s;
- input(s);
- rowviable(s);
- columnviable(s);
- submatviable(s);
- complete(s);
- output(s);
+ int n;
+ n=instances();
+ struct sudoku s[n];
+ input(n,s);
+ rowviable(n,s);
+ columnviable(n,s);
+ //submatviable(n,s);
+ complete(n,s);
+ output(n,s);
  return 0;
 }
 
