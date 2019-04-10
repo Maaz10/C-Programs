@@ -24,7 +24,7 @@ void input(int n,struct sudoku s[])
   {
    for(int j=0;j<9;j++)
    {
-    scanf("%d",&s->a[i][j]);
+    scanf("%d",&s[k].a[i][j]);
    }
   }
  }
@@ -37,7 +37,7 @@ void rowviable(int n,struct sudoku s[])
   s[l].x=0;
   for(int i=0;i<9;i++)
   {
-   for(int j=0;i<9;i++)
+   for(int j=0;j<9;j++)
    {
     for(int k=0;k<9 && k!=j;k++)
     {
@@ -59,11 +59,11 @@ void columnviable(int n,struct sudoku s[])
   s[l].y=0;
   for(int i=0;i<9;i++)
   {
-   for(int j=0;i<9;i++)
+   for(int j=0;j<9;j++)
    {
     for(int k=0;k<9 && k!=j;k++)
     {
-     if(s[l].a[j][i]==s[l].a[j][k])
+     if(s[l].a[j][i]==s[l].a[k][i])
      {
       s[l].y=1;
      }
@@ -84,7 +84,7 @@ void columnviable(int n,struct sudoku s[])
   { 
    for(int i=b;i<c;i++)
    {
-    for(int j=b;i<c;i++)
+    for(int j=b;j<c;j++)
     {
      for(int k=0;k<3;k++)
      {
@@ -158,9 +158,4 @@ int main()
  output(n,s);
  return 0;
 }
-
-
-
-
-
 
