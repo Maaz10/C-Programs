@@ -1,7 +1,7 @@
 {
  for(int l=0;l<n;l++)
  {
-  s[l].x=0;
+  s[l].y=0;
   for(int i=0;i<9;i++)
   {
    for(int j=0;j<9;j++)
@@ -12,14 +12,14 @@
           continue;
      else
      {
-      if(s[l].a[i][j]==s[l].a[i][k])
+      if(s[l].a[j][i]==s[l].a[k][i])
       {
-       s[l].x=1;
+       s[l].y=1;
       }
      }
     }
    }
   }
-  printf("%d",s[l].x);
+  printf("%d",s[l].y);
  }
-}
+} 
