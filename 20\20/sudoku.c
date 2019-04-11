@@ -41,9 +41,14 @@ void rowviable(int n,struct sudoku s[])
    {
     for(int k=0;k<9 && k!=j;k++)
     {
-     if(s[l].a[i][j]==s[l].a[i][k])
+     if(s[l].a[i][k]==0)
+          continue;
+     else
      {
-      s[l].x=1;
+      if(s[l].a[i][j]==s[l].a[i][k])
+      {
+       s[l].x=1;
+      }
      }
     }
    }
@@ -63,9 +68,14 @@ void columnviable(int n,struct sudoku s[])
    {
     for(int k=0;k<9 && k!=j;k++)
     {
-     if(s[l].a[j][i]==s[l].a[k][i])
+     if(s[l].a[k][i]==0)
+          continue;
+     else
      {
-      s[l].y=1;
+      if(s[l].a[j][i]==s[l].a[k][i])
+      {
+       s[l].y=1;
+      }
      }
     }
    }
@@ -74,32 +84,48 @@ void columnviable(int n,struct sudoku s[])
  }
 } 
 
-/*void submatviable(int n,struct sudoku s[])
+void submatviable(int n,struct sudoku s[])
 {
  for(int l=0;l<n;l++)
  {
-  int c=3,b=0;
+  int a=0,b=3,c=0,d=3,e=0,f=3,g=0,h=3;
   s[l].z=0;
-  while(c<9)
+  while(b<10)
   { 
-   for(int i=b;i<c;i++)
+   for(int i=a;i<b;i++)
    {
-    for(int j=b;j<c;j++)
+    while(f<10)
     {
-     for(int k=0;k<3;k++)
+     for(int j=e;j<f;j++)
      {
-      if(s[l].a[i][j]==s[l].a[i][k])
+      if(s[l].a[i][j]==0)
       {
-       s[l].z=1;
+       continue;
+      }
+      else
+      {
+       for(int k=a;k<b;k++)
+       {
+        for(int m=e;m<f&&m!=j;m++)
+        {
+         if(s[l].a[i][j]==s[l].a[k][m])
+         { 
+          s[l].z=1;
+         }
+        }
        }
       }
      }
+     e+=3;
+     f+=3;
+     }
     }
-    b+=3;
-    c+=3;
-   }
+   a+=3;
+   b+=3;
   }
- }*/
+  printf("%d",s[l].z);
+ }
+}
 
 void complete(int n,struct sudoku s[])
 {
@@ -133,12 +159,12 @@ void output(int n,struct sudoku s[])
    printf("complete ");
   }
  
-  if(s[i].x==0 && s[i].y==0 /*&& s[i].z==0*/)
+  if(s[i].x==0 && s[i].y==0 && s[i].z==0)
   {
    printf("viable");
   }
   else
-  if(s[i].x!=0 || s[i].y!=0 /*|| s[i].z!=0*/)
+  if(s[i].x!=0 || s[i].y!=0 || s[i].z!=0)
   { 
    printf("non viable");
   }
@@ -153,9 +179,8 @@ int main()
  input(n,s);
  rowviable(n,s);
  columnviable(n,s);
- //submatviable(n,s);
+ submatviable(n,s);
  complete(n,s);
  output(n,s);
  return 0;
 }
-
