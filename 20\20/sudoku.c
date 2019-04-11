@@ -98,20 +98,13 @@ void submatviable(int n,struct sudoku s[])
     {
      for(int j=e;j<f;j++)
      {
-      if(s[l].a[i][j]==0)
+      for(int k=a;k<b;k++)
       {
-       continue;
-      }
-      else
-      {
-       for(int k=a;k<b;k++)
+       for(int m=e;m<f&&m!=j;m++)
        {
-        for(int m=e;m<f&&m!=j;m++)
-        {
-         if(s[l].a[i][j]==s[l].a[k][m])
-         { 
-          s[l].z=1;
-         }
+        if(s[l].a[i][j]==s[l].a[k][m])
+        { 
+         s[l].z=1;
         }
        }
       }
