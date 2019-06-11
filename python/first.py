@@ -1,9 +1,9 @@
 class username:
   def entries(self):
-     self.server=input()
-     self.dbname=input()
-     self.usr=input()
-     self.passs=input()
+     self.server=input("SERVER = ")
+     self.dbname=input("DB NAME = ")
+     self.usr=input("USR = ")
+     self.passs=input("PASS = ")
      return self
   def show(self):
      print("server = %s "%(self.server))
@@ -19,4 +19,5 @@ x.show()
 print(p.server)
 print(p.dbname)
 print(p.usr)
-print(p.pa
+print(p.passs)
+x.dict()
