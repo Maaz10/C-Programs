@@ -21,7 +21,7 @@ void input(int n,char s[n][25])
 
 int compare(const void *p1,const void *p2)
 {
-    return strcmp( *( char* const* )p1 , *( char* const* )p2 );
+    return strcmp( (const char* )p1 , (const char* )p2 );
 }
 
 int main()
