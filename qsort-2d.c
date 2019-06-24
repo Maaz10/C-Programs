@@ -30,7 +30,7 @@ int main()
     n=getn();
     char s[n][25];
     input(n,s);
-    qsort(&s[0][0],n,sizeof(char*),compare);
+    qsort(s,n,sizeof(char*),compare);
     printf("The string after sorting is\n");
     for(int i=0;i<n;i++)
     {
