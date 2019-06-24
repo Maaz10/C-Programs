@@ -12,13 +12,15 @@ int getn()
 
 void input(int n.char *s[n])
 {
-  char a[10];
+ // char a[10];
   for(int i=0;i<n;i++)\
   {
-    printf("Enter No.%d string");
-    scanf("%s",a);
-    s[i]=malloc(strlen(a)+1);
-    strcpy(s[i],a);
+    printf("Enter string");
+    //scanf("%s",a);
+    scanf("%s",s[i]);
+    s[i] = (char*)malloc(strlen(s[i])*sizeof(char));
+    //s[i]=malloc(strlen(a)+1);
+   // strcpy(s[i],a);
   }
 }
 
