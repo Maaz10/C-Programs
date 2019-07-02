@@ -70,5 +70,5 @@ void main()
         qsort(s,n,sizeof(struct class),cmpname);
         break;
     }
-    output(n,s)
+    output(n,s);
 }
