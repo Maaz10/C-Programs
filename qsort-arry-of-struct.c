@@ -16,14 +16,18 @@ int getn()
     return n;
 }
 
-void input(int n,struct class s[n])
+int input(int n,struct class s[n])
 {
-    printf("Enter Rollno and Name\n");
+    int type;
+    printf("\nEnter Rollno and Name\n");
     for(int i=0;i<n;i++)
     {
         printf("%d ",i+1);        
         scanf(" %d %s",&s[i].rollno,s[i].name);
     }
+    printf("\nEnter the type of sorting\n1:Rollno\n2:Name\n->");
+    scanf("%d",&type);
+    return type;
 }
 
 int cmprollno(const void *a,const void *b)
@@ -40,34 +44,31 @@ int cmpname(const void *a,const void *b)
     return strcmp(sa->name,sb->name);
 }
 
+void output(int n,struct class s[n])
+{
+    printf("\nAfter sorting\n");
+    for(int i=0;i<n;i++)
+    {
+         printf("%d ",i+1);     
+         printf("%d %s\n",s[i].rollno,s[i].name);
+    }    
+}
+
 void main()
 {
     int n;
     n=getn();
     struct class s[n];
-    int type;
-    input(n,s);
-    printf("Enter the type of sorting\nr:Rollno\nn:Name\n");
-    scanf("%d",type);
+    int type=0;
+    type=input(n,s);
     switch(type)
     {
-    case 'r':
+    case 1:
         qsort(s,n,sizeof(struct class),cmprollno);
-        printf("After sorting\n");
-        for(int i=0;i<n;i++)
-        {
-            printf("%d ",i+1);     
-            printf("%d %s\n",s[i].rollno,s[i].name);
-        }
         break;
-    case 'n':
+    case 2:
         qsort(s,n,sizeof(struct class),cmpname);
-        printf("After sorting\n");
-        for(int i=0;i<n;i++)
-        {
-            printf("%d ",i+1);     
-            printf("%d %s\n",s[i].rollno,s[i].name);
-        }
         break;
     }
+    output(n,s)
 }
