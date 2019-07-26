@@ -14,7 +14,7 @@ void input(int n,int a[n])
     printf("Enter the numbers ");
     for(int i=0;i<n;i++)
     {
-        scanf("%d",a[i]);
+        scanf("%d",&a[i]);
     }
 }
 
@@ -28,7 +28,7 @@ void output(int n,int a[n])
     printf("The array after sorting is ");
     for(int i=0;i<n;i++)
     {
-        printf("%d",a[i]);
+        printf(" %d",a[i]);
     }
 }
  
