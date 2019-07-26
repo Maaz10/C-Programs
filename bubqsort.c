@@ -42,6 +42,8 @@ void myqsort(int n,int a[n],int size,int(*compare)(const void *p1,const void *p2
                 x[0]=a[j];
                 x[1]=a[j+1];
                 qsort(x,2,sizeof(int),compare);
+                a[j]=x[0];
+                a[j+1]=x[1];
         }
     }
 }
