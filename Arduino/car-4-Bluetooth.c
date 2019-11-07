@@ -2,10 +2,10 @@ char Incoming_value = 0;
 
 void setup() {
     
-  pinMode(3, OUTPUT); // Front Left motor
-  pinMode(4, OUTPUT); // Front Left motor
-  pinMode(5, OUTPUT); // Front Right motor
-  pinMode(6, OUTPUT); //Front Right motor
+  pinMode(3, OUTPUT); 
+  pinMode(4, OUTPUT); 
+  pinMode(5, OUTPUT); 
+  pinMode(6, OUTPUT); 
   Serial.begin(9600);   
 }
 
@@ -15,7 +15,7 @@ void loop() {
     Incoming_value = Serial.read();      
     Serial.print(Incoming_value);        
     Serial.print("\n"); 
-    //left    
+
     if(Incoming_value == '1') 
     {            
         Serial.println("  1  ");
@@ -23,6 +23,7 @@ void loop() {
         digitalWrite(4, HIGH);
         digitalWrite(5, LOW);
         digitalWrite(6, HIGH);
+        delay(1000);
     }
     else if(Incoming_value == '2')
     {   
@@ -31,8 +32,9 @@ void loop() {
         digitalWrite(3, HIGH);
         digitalWrite(6, LOW);
         digitalWrite(5, HIGH);
+        delay(1000);
     }
-    //Right
+
     else if(Incoming_value == '3') 
     {    
         Serial.println("  3  ");   
@@ -40,11 +42,7 @@ void loop() {
         digitalWrite(4, HIGH);
         digitalWrite(6, LOW);
         digitalWrite(5, HIGH);
-        delay(200);
-        digitalWrite(3, LOW);
-        digitalWrite(4, HIGH);
-        digitalWrite(5, LOW);
-        digitalWrite(6, HIGH);
+        delay(450);
     }      
    else if(Incoming_value == '4')
    {       
@@ -53,11 +51,7 @@ void loop() {
         digitalWrite(3, HIGH);
         digitalWrite(5, LOW);
         digitalWrite(6, HIGH);
-        delay(200);
-        digitalWrite(3, LOW);
-        digitalWrite(4, HIGH);
-        digitalWrite(5, LOW);
-        digitalWrite(6, HIGH);
+        delay(450);
     }       
 }                            
 }
