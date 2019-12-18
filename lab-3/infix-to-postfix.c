@@ -1,24 +1,24 @@
 #include<stdio.h>
 #include<ctype.h>
 
-char stack[20];
-int top=-1;
+char s[10];
+int t=-1;
 
 void push(char x)
-{
- top=top+1;
- stack[top]=x;
+{ 
+ s[++t]=x;
 }
 
-char pop()
+int pop()
 {
- if(top==-1)
+ if(t==-1)
  {
-  return -1;
+      printf("stack empty");
+      return -1;
  }
  else
  {
-  return stack[top--];
+      return s[t--]; 
  }
 }
 
@@ -26,32 +26,28 @@ int priority(char x)
 {
  if(x=='+' || x=='-')
   return 1;
- else if(x=='*' || x=='/')
+ if(x=='*' || x=='/')
   return 2;
- else if(x=='^')
+ if(x=='^')
   return 3;
  else
   return 0;
 }
 
 int main()
-{
+{ 
  char exp[20];
  char *e,x;
  printf("Enter the expression: ");
  scanf("%s",exp);
  e=exp;
- while(*e!='\0')
- {
+ while(*e !='\0')
+ { 
   if(isalnum(*e))
-  { 
-   printf("%c",*e);
-  }
-  else if(*e=='(')
-  {
-   push(*e);
-  }
-  else if(*e==')')
+    printf("%c",*e);
+  else if(*e =='(')
+    push(*e);
+  else if(*e ==')')
   {
    while((x=pop())!='(')
    {
@@ -60,18 +56,16 @@ int main()
   }
   else
   {
-    while(priority(stack[top])>= priority(*e))
-    {
-     printf("%c",pop());
-    }
-     push(*e);
- 
+   while(priority(s[t])>=priority(*e))
+   {
+    printf("%c",pop());
+    push(*e);
    }
+  }
   e++;
  }
- while(top!=-1)
- {
-  printf("%c",pop());
- }
+ 
+ while(t!=-1)
+      printf("%c",pop());
  return 0;
 }
