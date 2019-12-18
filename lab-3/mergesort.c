@@ -1,64 +1,65 @@
- 
 #include<stdio.h>
 #include<stdlib.h>
-int A[10],max=10;
-void merge(int beg, int mid , int end)
+
+int a[10],max=10;
+
+void merge(int beg,int mid,int end)
 {
-    int B[10];
-    int i= beg, j= mid+1, k=beg ,p;
-    while(i<=mid && j<=end)
-    {
-        if(A[i]<=A[j])
-        {
-            B[k]=A[i];
-            i++;
-            k++;
-        }
-        else
-        {
-            B[k]=A[j];
-            j++;
-            k++;
-        }
-        
-    }
-    if(i>mid)
-    {
-        for(p=j;p<=end;p++)
-        {
-            B[k]=A[p];
-            k++;
-        }
-    }
-    if(j>end)
-    {
-        for(p=i;p<=mid;p++)
-        {
-            B[k]=A[p];
-            k++;
-        }
-    }
-    for(p=beg;p<=end;p++)
-     A[p]=B[p];
+ int b[10];
+ int i=beg,j=mid+1,k=beg,p;
+ while(i<=mid && j<=end)
+ {
+  if(a[i]<=a[j])
+  {
+   b[k]=a[i];
+   i++;
+   k++;
+  }
+  else
+  {
+   b[k]=a[j];
+   k++;
+   j++;
+  }
+  if(i>mid)
+  {
+   for(p=j;p<=end;p++)
+   {
+    b[k]=a[p];
+    k++;
+   }
+  }
+  if(j>end)
+  {
+   for(p=i;p<=mid;p++)
+   {
+    b[k]=a[p];
+    k++;
+   }
+  }
+  for(p=beg;p<=end;p++)
+      a[p]=b[p];
+ }
 }
-void mergesort(int beg, int end)
+
+void mergesort(int beg,int end)
 {
-    if(beg<end)
-    {
-        int mid= (int)((beg+end)/2);
-        mergesort(beg,mid);
-        mergesort(mid+1, end);
-        merge(beg ,mid, end);
-    }
+ if(beg<end)
+ {
+  int mid=(int)(beg+end)/2;
+  mergesort(beg,mid);
+  mergesort(mid+1,end);
+  merge(beg,mid,end);
+ }
 }
+
 void main()
 {
-    int i;
-    printf("Enter the elements=");
-    for(i=0;i<max;i++)
-      scanf("%d",&A[i]);
-    mergesort(0,max-1);
-    printf("After Sorting:");
-    for(i=0;i<max;i++)
-      printf("%d\t",A[i]);  
+ printf("Enter the elements: \n");
+ for(int i=0;i<max;i++)
+      scanf("%d",&a[i]);
+ mergesort(0,max-1);
+ printf("After sorting:\n");
+ for(int i=0;i<max;i++)
+      printf("%d",a[i]);
 }
