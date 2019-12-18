@@ -59,8 +59,8 @@ int main()
    while(priority(s[t])>=priority(*e))
    {
     printf("%c",pop());
-    push(*e);
    }
+  push(*e);
   }
   e++;
  }
