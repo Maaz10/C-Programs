@@ -21,6 +21,7 @@ void merge(int beg,int mid,int end)
    k++;
    j++;
   }
+ }
   if(i>mid)
   {
    for(p=j;p<=end;p++)
@@ -39,7 +40,6 @@ void merge(int beg,int mid,int end)
   }
   for(p=beg;p<=end;p++)
       a[p]=b[p];
- }
 }
 
 void mergesort(int beg,int end)
